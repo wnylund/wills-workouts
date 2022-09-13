@@ -1,0 +1,52 @@
+<%= form_for @path do |form| %>
+<%= form.hidden_field :workout_id, value: @workout.id %>
+
+<div class ="container container-form">
+
+      <div class = "row mb-3">
+        <div class = "col-md-4">
+          <%= form.label :name %>
+        </div>
+        <div class = "col-md-8">
+          <%= form.text_field :name, class:"text" %>
+        </div>
+      </div>
+
+      <div class = "row mb-3">
+        <div class = "col-md-4">
+          <%= form.label :weight %>
+        </div>
+        <div class = "col-md-8">
+          <%= form.text_field :weight, class:"text" %>
+        </div>
+      </div>
+
+      <div class = "row mb-3">
+        <div class = "col-md-4">
+          <%= form.label :sets %>
+        </div>
+        <div class = "col-md-8">
+          <%= form.text_field :sets, class:"text" %>
+        </div>
+      </div>
+
+      <div class = "row mb-3">
+        <div class = "col-md-4">
+          <%= form.label :reps %>
+        </div>
+        <div class = "col-md-8">
+          <%= form.text_field :reps, class:"text" %>
+        </div>
+      </div>
+
+      <div class = "row mb-3">
+        <div class = "col-md-4">
+          <%= form.label :notes %>
+        </div>
+        <div class = "col-md-8">
+          <%= form.text_field :notes, class:"text" %>
+        </div>
+      </div>
+      <%=form.submit%>
+</div>
+<% end %>

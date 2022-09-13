@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @round.weight %>
+</p>
+
+<p>
+  <strong>Reps:</strong>
+  <%= @round.reps %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @round.notes %>
+</p>
+
+<p>
+  <strong>Exercise:</strong>
+  <%= @round.exercise_id %>
+</p>
+
+<%= link_to 'Edit', edit_round_path(@round) %> |
+<%= link_to 'Back', rounds_path %>

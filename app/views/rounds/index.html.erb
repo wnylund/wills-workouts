@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Rounds</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Weight</th>
+      <th>Reps</th>
+      <th>Notes</th>
+      <th>Exercise</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rounds.each do |round| %>
+      <tr>
+        <td><%= round.weight %></td>
+        <td><%= round.reps %></td>
+        <td><%= round.notes %></td>
+        <td><%= round.exercise_id %></td>
+        <td><%= link_to 'Show', round %></td>
+        <td><%= link_to 'Edit', edit_round_path(round) %></td>
+        <td><%= link_to 'Destroy', round, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Round', new_round_path %>

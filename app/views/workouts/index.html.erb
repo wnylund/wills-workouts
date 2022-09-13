@@ -1,0 +1,68 @@
+<p id="notice"><%= notice %></p>
+
+<div class = "container-fluid">
+<div class = "row mb-5">
+  <div class="col-lg-10 col-md-10 col-sm-10 mt-5 mb-5 center text-left">
+    <div class="big-title">Will's Workouts</div>
+  </div>
+</div>
+<div class = "row">
+  <div class = "col-lg-7 col-md-7 col-sm-7">
+  <% @workouts.each do |workout| %>
+  <div class = "row mb-2">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <div class="shadow p-4 mb-5 bg-white rounded">  
+            <div class = "row mb-3">
+              <div class = "col-md-6">
+                <h2><%= workout.date.strftime("%B %d, %Y") %></h2>
+              </div>
+              <div class = "col-md-6" >
+                <h2><%=workout.split_day %></h2>
+              </div>
+            </div>
+            <hr>
+            <% workout.exercises.each do |exercise| %>
+              <div class = "row mb-3">
+                <div class = "col-md-2 d-flex">
+                  <%=exercise.name%>
+                </div>
+                <div class = "col-md-2 d-flex">
+                  <div class="title">Sets:</div><%=exercise.sets%>
+                </div>
+                <div class = "col-md-2 d-flex">
+                  <div class="title">Reps:</div><%=exercise.reps%>
+                </div>
+                <div class = "col-md-2 d-flex">
+                  <div class="title">Weight:</div><%=exercise.weight%>
+                </div>
+                <div class = "col-md-2 d-flex">
+                  <%=link_to 'Edit Exercise', edit_workout_exercise_path(workout,exercise), style: "color:blue", data: {:confirm => 'Are you sure?'}, :method => :delete%>
+                </div>
+                <div class = "col-md-2 d-flex">
+                  <%=link_to 'Delete Exercise', workout_exercise_path(workout,exercise), style: "color:blue", data: {:confirm => 'Are you sure?'}, :method => :delete%>
+                </div>
+              </div>
+              <hr>
+            <%end%>
+            <div class = "row">
+              <div class = "col-md-6">
+                <%= link_to 'Add Exercise', new_workout_exercise_path(:workout_id => workout.id), style: "color:blue"%>
+              </div>   
+            </div>
+            <br>
+            <div class = "row">
+              <div class = "col-md-6">
+                <%=link_to 'Delete Workout', workout_path(workout), style: "color:red", data: {:confirm => 'Are you sure?'}, :method => :delete%>
+              </div>
+            </div>
+    </div>
+  </div>
+  </div>
+ <% end %>
+ </div>
+ <div class = "col-sm-3 col-lg-3 col-md-3">
+ 
+
+ </div>
+</div>
+<%= link_to 'New Workout', new_workout_path, style: "color:blue" %>
